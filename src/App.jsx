@@ -33,11 +33,21 @@ function App() {
       <img src={star3} alt="star3" className="star-img star-3" />
       <img src={star4} alt="star4" className="star-img star-4" />
       <img src={star5} alt="star5" className="star-img star-5" />
-      
+
       <header className="site-header">
         <img src={logo} alt="logo" className="site-logo" />
       </header>
-      {/* client/frame badge (5 images, 5 stars, paragraph) */}
+      <button className="site-login">Login</button>
+      <nav className="nav-ul">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+
+      </nav >
+
       <div className="client-frame">
         <div className="client-avatars">
           <img src={avatar1} alt="a1" />
@@ -53,16 +63,34 @@ function App() {
           <p className="client-text">115+ happy clients</p>
         </div>
       </div>
-      <button className="site-login">Login</button>
-      <nav className="nav-ul">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">About Us</a></li>
-        </ul>
+      <div className="hero-section">
+        <h1 class="text-7xl font-bold leading-tight items-center justify-between">
+          Automate <span class="text-orange-500">Intelligence</span>.
+            Accelerate Growth.
+        </h1>
 
-      </nav >
+        <p class="text-gray-300 mt-6 text-2xl">
+          Our AI-powered SaaS platform empowers businesses to streamline
+            operations, automate repetive tasks, and make smarter, data-driven
+              decisions-all from one intuitive dashboard.
+        </p>
+
+          <div class="mt-8 flex gap-4 items-center justify-center">
+            <button class="bg-orange-500 px-25 rounded-md">
+                Get Started
+            </button>
+            <button class="border border-gray-900 px-25 rounded-md">
+                See Details
+            </button>
+          </div>
+      </div>
+
+
+
+
+
+
+
 
 
 
@@ -70,4 +98,4 @@ function App() {
   );
 }
 
-export default App
+        export default App
