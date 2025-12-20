@@ -8,6 +8,21 @@ body {
   color: #fff;
 }
 
+/* site header & logo to sit above background layers */
+.site-header{
+  position: fixed;
+  top: 20px;
+  left: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+.site-logo{
+  width: 54px;
+  height: 40.32px;
+  display: block;
+}
+
 
 
 /* fixed full-viewport background layers */
@@ -47,3 +62,59 @@ body {
   right: 0;
 }
 
+.nav-ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  font-style: Sk-Modernist;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 100%;
+  
+}
+
+/* make the nav list items display in a row */
+.nav-ul ul{
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  
+}
+.nav-ul ul li a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 6px 0;
+  display: inline-block;
+}
+/* active (Home) — bold white with underline */
+.nav-ul ul li:first-child a{
+  color: #ffffff;
+  font-weight: 700;
+  position: relative;
+}
+.nav-ul ul li:first-child a::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #f80101;
+  bottom: -8px;
+  border-radius: 2px;
+}
+.site-login{
+  position: fixed;
+  top: 15px;
+  right: 45px;
+  z-index: 200;
+  background:#f80101;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
