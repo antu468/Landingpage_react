@@ -21,12 +21,13 @@ function App() {
     <>
       <div className="bg-layer bg-87" style={{ backgroundImage: `url(${bg1})` }} />
       <div className="bg-layer bg-85" style={{ backgroundImage: `url(${bg2})` }} />
-        {/* five small star/dust overlays */}
-        <div className="star-layer star-1" style={{ backgroundImage: `url(${star1})` }} />
-        <div className="star-layer star-2" style={{ backgroundImage: `url(${star2})` }} />
-        <div className="star-layer star-3" style={{ backgroundImage: `url(${star3})` }} />
-        <div className="star-layer star-4" style={{ backgroundImage: `url(${star4})` }} />
-        <div className="star-layer star-5" style={{ backgroundImage: `url(${star5})` }} />
+
+      {/* five small star/dust overlays as positioned images with borders */}
+      <img src={star1} alt="star1" className="star-img star-1" />
+      <img src={star2} alt="star2" className="star-img star-2" />
+      <img src={star3} alt="star3" className="star-img star-3" />
+      <img src={star4} alt="star4" className="star-img star-4" />
+      <img src={star5} alt="star5" className="star-img star-5" />
       
       <header className="site-header">
         <img src={logo} alt="logo" className="site-logo" />

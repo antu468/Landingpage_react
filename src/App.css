@@ -121,6 +121,21 @@ body {
   background-size: 160px auto;
 }
 
+/* use actual <img> elements for the star overlays so we can add borders */
+.star-img{
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  transition: opacity 600ms ease;
+}
+.star-1{ top: 18%; left: 6%; width: 520px; opacity: 100%;  }
+.star-2{ top: 22%; right: 6%; width: 220px; opacity: 100%;  }
+.star-3{ left: 80%; left: 50%; width: 319px; transform: translateX(-50%); opacity: 100%;}
+.star-4{ bottom: 8%; left: 8%; width: 180px; opacity: 100%; }
+.star-5{ bottom: 8%; right: 8%; width: 160px; opacity: 100%;   }
+
 .nav-ul {
   display: flex;
   justify-content: center;
