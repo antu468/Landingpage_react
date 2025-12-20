@@ -1,4 +1,6 @@
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -9,7 +11,7 @@ body {
 }
 
 /* site header & logo to sit above background layers */
-.site-header{
+.site-header {
   position: fixed;
   top: 20px;
   left: 24px;
@@ -17,7 +19,8 @@ body {
   display: flex;
   align-items: center;
 }
-.site-logo{
+
+.site-logo {
   width: 54px;
   height: 40.32px;
   display: block;
@@ -62,6 +65,62 @@ body {
   right: 0;
 }
 
+/* small star/dust overlay layers (use the 5 uploaded images) */
+.star-layer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: repeat;
+  background-position: center;
+  background-size: auto 100vh;
+  pointer-events: none;
+}
+.star-1 {
+  z-index: -1; /* above bg-layer (-3,-2) but behind UI */
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  background-repeat: no-repeat;
+  background-position: 20% 20%;
+  background-size: 300px auto;
+}
+
+.star-2 {
+  z-index: -1;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  background-repeat: no-repeat;
+  background-position: 80% 25%;
+  background-size: 260px auto;
+}
+
+.star-3 {
+  z-index: -1;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+  background-size: 220px auto;
+}
+
+.star-4 {
+  z-index: -1;
+  opacity: 0.35;
+  mix-blend-mode: screen;
+  background-repeat: no-repeat;
+  background-position: 10% 80%;
+  background-size: 180px auto;
+}
+
+.star-5 {
+  z-index: -1;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+  background-repeat: no-repeat;
+  background-position: 85% 80%;
+  background-size: 160px auto;
+}
+
 .nav-ul {
   display: flex;
   justify-content: center;
@@ -71,32 +130,35 @@ body {
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 100%;
-  
+
 }
 
 /* make the nav list items display in a row */
-.nav-ul ul{
+.nav-ul ul {
   display: flex;
   gap: 32px;
   list-style: none;
   margin: 0;
   padding: 0;
   align-items: center;
-  
+
 }
-.nav-ul ul li a{
+
+.nav-ul ul li a {
   color: rgb(255, 255, 255);
   text-decoration: none;
   padding: 6px 0;
   display: inline-block;
 }
+
 /* active (Home) — bold white with underline */
-.nav-ul ul li:first-child a{
+.nav-ul ul li:first-child a {
   color: #ffffff;
   font-weight: 700;
   position: relative;
 }
-.nav-ul ul li:first-child a::after{
+
+.nav-ul ul li:first-child a::after {
   content: '';
   position: absolute;
   left: 0;
@@ -106,13 +168,14 @@ body {
   bottom: -8px;
   border-radius: 2px;
 }
-.site-login{
+
+.site-login {
   position: fixed;
   top: 15px;
   right: 45px;
   z-index: 200;
-  background:#f80101;
-  border: 1px solid rgba(255,255,255,0.18);
+  background: #f80101;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   color: #fff;
   padding: 8px 14px;
   border-radius: 8px;
