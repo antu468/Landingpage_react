@@ -15,6 +15,7 @@ import star2 from './assets/images/image (2).png';
 import star3 from './assets/images/image (3).png';
 import star4 from './assets/images/image (4).png';
 import star5 from './assets/images/image (5).png';
+import statsImg from './assets/images/Stats.png';
 
 
 
@@ -66,36 +67,45 @@ function App() {
       <div className="hero-section">
         <h1 class="text-7xl font-bold leading-tight items-center justify-between">
           Automate <span class="text-orange-500">Intelligence</span>.
-            Accelerate Growth.
+          Accelerate Growth.
         </h1>
 
         <p class="text-gray-300 mt-6 text-2xl">
           Our AI-powered SaaS platform empowers businesses to streamline
-            operations, automate repetive tasks, and make smarter, data-driven
-              decisions-all from one intuitive dashboard.
+          operations, automate repetive tasks, and make smarter, data-driven
+          decisions-all from one intuitive dashboard.
         </p>
 
-          <div class="mt-8 flex gap-4 items-center justify-center">
-            <button class="bg-orange-500 px-25 rounded-md">
-                Get Started
-            </button>
-            <button class="border border-gray-900 px-25 rounded-md">
-                See Details
-            </button>
-          </div>
+        <div class="mt-8 flex gap-4 items-center justify-center">
+          <button class="bg-orange-500 px-25 rounded-md">
+            Get Started
+          </button>
+          <button class="border border-gray-900 px-25 rounded-md">
+            See Details
+          </button>
+        </div>
       </div>
 
+      <div class="stats-wrapper">
+        <div class="stats">
+          <div class="stat">
+            <div class="label">Clients</div>
+            <div class="value">120K+</div>
+          </div>
 
+          <div class="stat">
+            <div class="label">Projects</div>
+            <div class="value">150+</div>
+          </div>
 
-
-
-
-
-
-
-
+          <div class="stat">
+            <div class="label">5-Star Reviews</div>
+            <div class="value">32K+</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
 
-        export default App
+export default App
