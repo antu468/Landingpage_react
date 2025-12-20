@@ -15,6 +15,8 @@ import star2 from './assets/images/image (2).png';
 import star3 from './assets/images/image (3).png';
 import star4 from './assets/images/image (4).png';
 import star5 from './assets/images/image (5).png';
+import vector from './assets/images/Vector.png';
+
 import statsImg from './assets/images/Stats.png';
 
 
@@ -28,7 +30,6 @@ function App() {
       <div className="bg-layer bg-87" style={{ backgroundImage: `url(${bg1})` }} />
       <div className="bg-layer bg-85" style={{ backgroundImage: `url(${bg2})` }} />
 
-      {/* five small star/dust overlays as positioned images with borders */}
       <img src={star1} alt="star1" className="star-img star-1" />
       <img src={star2} alt="star2" className="star-img star-2" />
       <img src={star3} alt="star3" className="star-img star-3" />
@@ -71,8 +72,7 @@ function App() {
         </h1>
 
         <p class="text-gray-300 mt-6 text-2xl">
-          Our AI-powered SaaS platform empowers businesses to streamline
-          operations, automate repetive tasks, and make smarter, data-driven
+          Our AI-powered SaaS platform empowers businesses to streamline <br/>    operations, automate repetive tasks, and make smarter, data-driven<br/>
           decisions-all from one intuitive dashboard.
         </p>
 
@@ -88,7 +88,7 @@ function App() {
 
       <div class="stats-wrapper">
         <div class="stats">
-          <div class="stat">
+          <div class="stat top-60px lest-200px">
             <div class="label">Clients</div>
             <div class="value">120K+</div>
           </div>
@@ -104,6 +104,20 @@ function App() {
           </div>
         </div>
       </div>
+
+      <div className="content-section px-20">
+        <h2 className="text-7xl font-bold leading-tight">
+          Designed for Designers<br />Powered by <span className="text-orange-500">AI</span>.
+        </h2>
+
+        <p className="text-gray-300 mt-6 text-2xl">
+          Unlock the full potential of your creativity with our AI-powered design assistant.<br />
+          Explore new dimensions of design
+        </p>
+
+        <img src={vector} alt="vector" className="vector-img" />
+      </div>
+
     </>
   );
 }
