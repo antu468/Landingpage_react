@@ -149,6 +149,14 @@ function App() {
         </div>
       </section>
 
+
+      <section class="features-section1 px-6">
+        <div class="mx-auto hero-container relative">
+          <div class="lead-year">2025</div>
+          <p class="lead">Whether you're designing for personal projects, creative teams, or large-scale campaigns, our AI-powered platform is built to bring your ideas to life—quickly, beautifully, and intelligently. And the results? The numbers speak for themselves:</p>
+        </div>
+      </section>
+
     </>
   );
 }

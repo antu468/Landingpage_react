@@ -534,3 +534,25 @@ body {
 .feature-grid>.feature-card:nth-child(4) {
   align-self: start;
 }
+
+.features-section1 .lead {
+  font-family: 'Sk-Modernist', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 39.17px;
+  color: #ffffffe2;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.features-section1 .lead-year {
+  position: absolute;
+  left: 220px;
+  top: 0.6rem;
+  font-family: 'Sk-Modernist', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #ffffff;
+  opacity: 0.95;
+}
