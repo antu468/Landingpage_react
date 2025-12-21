@@ -17,11 +17,6 @@ import star4 from './assets/images/image (4).png';
 import star5 from './assets/images/image (5).png';
 import vector from './assets/images/Vector.png';
 
-import statsImg from './assets/images/Stats.png';
-
-
-
-
 function App() {
   const [count, setCount] = useState(0)
 
@@ -72,7 +67,7 @@ function App() {
         </h1>
 
         <p class="text-gray-300 mt-6 text-2xl">
-          Our AI-powered SaaS platform empowers businesses to streamline <br/>    operations, automate repetive tasks, and make smarter, data-driven<br/>
+          Our AI-powered SaaS platform empowers businesses to streamline <br />    operations, automate repetive tasks, and make smarter, data-driven<br />
           decisions-all from one intuitive dashboard.
         </p>
 
@@ -117,6 +112,42 @@ function App() {
 
         <img src={vector} alt="vector" className="vector-img" />
       </div>
+
+      <section className="feature-section">
+        <div className="feature-grid">
+          <article className="feature-card feature-card--accent feature-card--small">
+            <div className="card-body">
+              <p className="card-copy">Skip the blank canvas and spark creativity <br />instantly. Our AI generates high-quality, on-<br /> brand design concepts within seconds</p>
+              <h3 className="card-title">Instant Ideation</h3>
+            </div>
+            <button className="card-action" aria-label="open"></button>
+          </article>
+
+          <article className="feature-card feature-card--large-accent">
+            <div className="card-body">
+              <p className="card-copy">No two creators are the same, and neither are their<br /> styles. Our AI learns from your inputs, understands your <br />aesthetic preferences, and fine-tunes every design.</p>
+              <h3 className="card-title">Smart Adaptability</h3>
+            </div>
+            <button className="card-action" aria-label="open"></button>
+          </article>
+
+          <article className="feature-card feature-card--large">
+            <div className="card-body">
+              <p className="card-copy">Design once, export anywhere. Whether you need high- <br />res graphics for print, responsive visuals for the web, <br />mobile-optimized assets,</p>
+              <h3 className="card-title">Multi-Format Export</h3>
+            </div>
+            <button className="card-action" aria-label="open"></button>
+          </article>
+
+          <article className="feature-card feature-card--accent-small feature-card--small">
+            <div className="card-body">
+              <p className="card-copy">Say goodbye to repetitive tweaks and<br /> endless back-and-forths. With intuitive<br /> prompt-based editing</p>
+              <h3 className="card-title">Seamless Revisions</h3>
+            </div>
+            <button className="card-action" aria-label="open"></button>
+          </article>
+        </div>
+      </section>
 
     </>
   );
