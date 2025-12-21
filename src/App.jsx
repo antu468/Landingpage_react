@@ -271,7 +271,13 @@ function App() {
           Giving you access to essential features and over 1,000 creative tools. Upgrade to the<br /> Pro Plan to unlock powerful AI capabilities, cloud syncing, and a whole new level of<br /> creative freedom.
         </p>
       </div>
+      <div className="toggle-wrapper">
+        <div class="toggle-btn active">Monthly</div>
+        <div class="toggle-btn">Yearly</div>
+      </div>
       <div className="bg-layer--88" style={{ backgroundImage: `url(${bg3})` }} />
+
+      
     </>
   )
 }

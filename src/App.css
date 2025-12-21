@@ -833,5 +833,39 @@ body {
   background-position: left center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  position: absolute;
+  
+}
+
+.toggle-wrapper {
+  background: #1c1f22;
+  padding: 10px;
+  border-radius: 333px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.toggle-btn {
+  padding: 10px 28px;
+  border-radius: 999px;
+  font-size: 16px;
+  cursor: default;
+  user-select: none;
+  color: #9ca3af;
+  transition: all 0.25s ease;
+}
+
+.toggle-btn.active {
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.05));
+  color: #ffffff;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
