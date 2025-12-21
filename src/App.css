@@ -477,6 +477,7 @@ body {
   border: none;
   box-shadow: 0 6px 18px rgba(255, 90, 40, 0);
   cursor: pointer;
+  rotate: -45deg;
 }
 
 @media (max-width: 900px) {

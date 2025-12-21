@@ -120,7 +120,7 @@ function App() {
               <p className="card-copy">Skip the blank canvas and spark creativity <br />instantly. Our AI generates high-quality, on-<br /> brand design concepts within seconds</p>
               <h3 className="card-title">Instant Ideation</h3>
             </div>
-            <button className="card-action" aria-label="open"></button>
+            <button className="card-action" aria-label="open">➜</button>
           </article>
 
           <article className="feature-card feature-card--large-accent">
@@ -128,7 +128,7 @@ function App() {
               <p className="card-copy">No two creators are the same, and neither are their<br /> styles. Our AI learns from your inputs, understands your <br />aesthetic preferences, and fine-tunes every design.</p>
               <h3 className="card-title">Smart Adaptability</h3>
             </div>
-            <button className="card-action" aria-label="open"></button>
+            <button className="card-action" aria-label="open">➜</button>
           </article>
 
           <article className="feature-card feature-card--large">
@@ -136,7 +136,7 @@ function App() {
               <p className="card-copy">Design once, export anywhere. Whether you need high- <br />res graphics for print, responsive visuals for the web, <br />mobile-optimized assets,</p>
               <h3 className="card-title">Multi-Format Export</h3>
             </div>
-            <button className="card-action" aria-label="open"></button>
+            <button className="card-action" aria-label="open">➜</button>
           </article>
 
           <article className="feature-card feature-card--accent-small feature-card--small">
@@ -144,7 +144,7 @@ function App() {
               <p className="card-copy">Say goodbye to repetitive tweaks and<br /> endless back-and-forths. With intuitive<br /> prompt-based editing</p>
               <h3 className="card-title">Seamless Revisions</h3>
             </div>
-            <button className="card-action" aria-label="open"></button>
+            <button className="card-action" aria-label="open">➜</button>
           </article>
         </div>
       </section>
