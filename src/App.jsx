@@ -277,7 +277,67 @@ function App() {
       </div>
       <div className="bg-layer--88" style={{ backgroundImage: `url(${bg3})` }} />
 
-      
+      <section class="pricing-section">
+        <div class="pricing-wrapper">
+          <div class="pricing-card side-card">
+            <h3>Free</h3>
+            <p class="desc">Everything you need to supercharge your productivity.</p>
+
+            <div class="price">$0 <span>/ month</span></div>
+              <h4>What's included</h4>
+              <ul>
+                <li>20 design generations/month</li>
+                <li>Low-res downloads</li>
+                <li>Basic style presets</li>
+                <li>Limited customization options</li>
+              </ul>
+
+              <button class="btn">Subscribe →</button>
+          </div>
+
+          <div class="pricing-card pro-card">
+            <h3 class="pro-title">Pro</h3>
+            <p class="desc">Unlock a new level of your personal productivity.</p>
+
+            <div class="price">
+              $17 <span>/ month</span>
+              <span class="badge">-20%</span>
+            </div>
+              <h4>What's included</h4>
+              <ul>
+                <li>Everything in Free</li>
+                <li>Enigma AI</li>
+                <li>Unlimited design generations</li>
+                <li>Custom Themes</li>
+                <li>High-resolution exports</li>
+                <li>Custom Extensions</li>
+                <li>Developer Tools</li>
+              </ul>
+
+              <button class="btn">Subscribe →</button>
+          </div>
+
+          <div class="pricing-card side-card">
+            <h3>Team</h3>
+            <p class="desc">Everything you need to supercharge your productivity.</p>
+
+            <div class="price">
+              $37 <span>/ month</span>
+              <span class="badge">-20%</span>
+            </div>
+              <h4>What's included</h4>
+              <ul>
+                <li>Everything in Free</li>
+                <li>Unlimited Shared Commands</li>
+                <li>Unlimited Shared Quicklinks</li>
+                <li>Priority support</li>
+              </ul>
+              <button class="btn">Subscribe →</button>
+          </div>
+        </div>
+      </section>
+
+
     </>
   )
 }

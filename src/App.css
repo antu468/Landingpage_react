@@ -834,7 +834,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  
+
 }
 
 .toggle-wrapper {
@@ -868,4 +868,107 @@ body {
   box-shadow:
     0 6px 18px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.pricing-section {
+  padding: 100px 0;
+}
+
+.pricing-wrapper {
+  display: flex;
+  justify-content: center;
+
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: #1b1d1f;
+  width: 350px;
+  padding: 40px;
+  border-radius: 24px;
+  flex-shrink: 0;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.side-card {
+  margin-top: 40px;
+  z-index: 1;
+}
+
+.pro-card {
+  transform: translateY(-40px);
+  border: 2px solid #ff6a2b;
+  z-index: 10;
+}
+
+.pro-title {
+  color: #ff6a2b;
+}
+
+.desc {
+  color: #b5b5b5;
+  margin: 12px 0 24px;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.price span {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.badge {
+  background: #f84a00;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 24px 0;
+}
+
+h4 {
+  margin-bottom: 16px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+}
+
+ul li {
+  margin-bottom: 12px;
+  color: #ddd;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(180deg, #3a1f14, #1c0f0a);
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 0 30px 1px rgba(224, 114, 81, 0.973);
+}
+
+.faq-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 80px auto;
+  padding: 0 20px;
 }
