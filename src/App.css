@@ -1135,33 +1135,54 @@ details:not([open]) .faq-answer {
 .curved-cta .container {
   position: relative;
   z-index: 2;
-  padding: 60px;
+  padding: 50px 30px;
   text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: rgba(6, 6, 6, 0);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 106, 0, 0.367);
 }
 
 .curved-cta h2 {
   color: #fff;
-  font-size: 48px;
-  margin: 0 0 12px;
+  font-size: 36px;
+  margin: 0 0 8px;
   font-weight: 700;
 }
 
 .curved-cta p {
   color: #f0f3f7;
   opacity: 0.95;
-  max-width: 900px;
-  margin: 0 auto 22px;
+  max-width: 760px;
+  margin: 0 auto 14px;
 }
 
 .curved-cta .cta-btn {
   display: inline-block;
   background: #ff6a00;
   color: #fff;
-  padding: 14px 28px;
+  padding: 10px 20px;
   border-radius: 10px;
   font-weight: 700;
-  box-shadow: 0 12px 40px rgba(255, 106, 0, 0.16);
+  box-shadow: 0 10px 30px rgba(255, 106, 0, 0.12);
   text-decoration: none;
+}
+
+.site-footer-box {
+  background: linear-gradient(180deg, rgba(6, 6, 6, 0.978), rgb(0, 0, 0));
+  border-radius: 15px;
+  padding-top: 25px; 
+  padding-bottom: 20px;
+  margin: 20px 20px 40px; 
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.786);
+}
+
+.site-footer-box .mx-auto.hero-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .faq-deco {

@@ -399,7 +399,7 @@ function App() {
         </div>
       </section>
 
-      <footer style={{ color: '#9ca3af', padding: '32px 0' }}>
+      <footer className="site-footer-box" style={{ color: '#9ca3af', padding: '0' }}>
         <div className="mx-auto hero-container" style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', justifyContent: 'space-between', maxWidth: '1100px', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px' }}>
           <div style={{ flex: '1', maxWidth: '360px' }}>
             <h1 style={{ height: '36px', marginBottom: '18px', fontWeight: 'bold', color: '#fff', fontSize: '32px' }}>About Us</h1>
