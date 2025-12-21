@@ -391,6 +391,50 @@ function App() {
         </div>
       </section>
       
+      <footer style={{ color: '#9ca3af', padding: '32px 0' }}>
+        <div className="mx-auto hero-container" style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', justifyContent: 'space-between', maxWidth: '1100px', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px' }}>
+          <div style={{ flex: '1', maxWidth: '360px' }}>
+            <h1 style={{ height: '36px', marginBottom: '18px', fontWeight: 'bold', color: '#fff', fontSize: '32px' }}>About Us</h1>
+            <p style={{ color: '#cfcfcf', lineHeight: 1.6 }}>We're a team of designers, engineers, and innovators building AI tools that empower anyone to turn imagination into stunning visuals—faster, smarter, and effortlessly.</p>
+          </div>
+
+          <div style={{ flex: '0 0 160px' }}>
+            <h4 style={{ color: '#ff6a00', marginBottom: '12px' }}>Useful Links</h4>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: '#bfc7cb' }}>
+              <li style={{ margin: '8px 0' }}>About</li>
+              <li style={{ margin: '8px 0' }}>Services</li>
+              <li style={{ margin: '8px 0' }}>Team</li>
+              <li style={{ margin: '8px 0' }}>Prices</li>
+            </ul>
+          </div>
+
+          <div style={{ flex: '0 0 160px' }}>
+            <h4 style={{ color: '#ff6a00', marginBottom: '12px' }}>Help</h4>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: '#bfc7cb' }}>
+              <li style={{ margin: '8px 0' }}>Customer Support</li>
+              <li style={{ margin: '8px 0' }}>Terms &amp; Conditions</li>
+              <li style={{ margin: '8px 0' }}>Privacy Policy</li>
+              <li style={{ margin: '8px 0' }}>Contact Us</li>
+            </ul>
+          </div>
+
+          <div style={{ flex: '0 0 220px', textAlign: 'right' }}>
+            <h4 style={{ color: '#ff6a00', marginBottom: '12px' }}>Connect With Us</h4>
+            <div style={{ color: '#bfc7cb', fontSize: '14px', lineHeight: 1.6 }}>27 Division St, New York, NY 10002, USA<br />+123 324 2653<br />username@mail.com</div>
+
+          </div>
+        </div>
+
+        <div style={{ maxWidth: '1100px', margin: '12px auto 0', borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ color: '#8b9396' }}>© {new Date().getFullYear()} Your Company. All rights reserved.</div>
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end', alignItems: 'center' }}>
+            <img src={logo1} alt="fb" style={{ width: '36px', height: '36px', borderRadius: '999px', padding: '6px', border: '1px solid rgba(255,106,0,0.12)' }} />
+            <img src={logo2} alt="pt" style={{ width: '36px', height: '36px', borderRadius: '999px', padding: '6px', border: '1px solid rgba(255,106,0,0.12)' }} />
+            <img src={logo3} alt="tw" style={{ width: '36px', height: '36px', borderRadius: '999px', padding: '6px', border: '1px solid rgba(255,106,0,0.12)' }} />
+            <img src={logo4} alt="g" style={{ width: '36px', height: '36px', borderRadius: '999px', padding: '6px', border: '1px solid rgba(255,106,0,0.12)' }} />
+          </div>
+        </div>
+      </footer>
 
     </>
   )
