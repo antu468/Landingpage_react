@@ -614,7 +614,7 @@ body {
 .avatars-inline {
   display: inline-flex;
   align-items: center;
-  
+
 }
 
 .avatars-inline img {
@@ -791,19 +791,36 @@ body {
   height: auto;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   transition: transform 250ms ease, box-shadow 250ms ease;
 }
-
-
 
 @media (max-width: 700px) {
   .image-group {
     gap: 12px;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
+
   .image-group .image-item {
     max-width: 140px;
   }
+}
+
+.content-a {
+  font-family: Sk-Modernist;
+  font-weight: 700px;
+  font-size: 64px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.content-b {
+  width: 780px;
+  height: 72px;
+  rotate: 0 deg;
+  opacity: 1;
+
 }

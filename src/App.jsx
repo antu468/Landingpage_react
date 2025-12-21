@@ -261,6 +261,15 @@ function App() {
           </div>
         </div>
       </section>
+
+      <div className="content-a">
+        <h1 className="text-7xl font-bold leading-tight items-center justify-between">
+          Choose the Plan <br />That’s Right for You
+        </h1>
+        <p className=" text-gray-300 mt-6 text-xl">
+          Giving you access to essential features and over 1,000 creative tools. Upgrade to the<br /> Pro Plan to unlock powerful AI capabilities, cloud syncing, and a whole new level of<br /> creative freedom.
+        </p>
+      </div>
     </>
   )
 }
