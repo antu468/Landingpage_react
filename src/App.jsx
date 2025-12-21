@@ -27,6 +27,13 @@ import featureImg6 from './assets/images/1 (2).png'
 import box4 from './assets/images/3 (3).png'
 import box5 from './assets/images/2 (3).png'
 import box6 from './assets/images/Mask group.png'
+import rec1 from './assets/images/Rounded rectangle (1).png'
+import rec2 from './assets/images/Rounded rectangle.png'
+import rec3 from './assets/images/Circle.png'
+import logo1 from './assets/images/facebook.png'
+import logo2 from './assets/images/github.png'
+import logo3 from './assets/images/twitter.png'
+import logo4 from './assets/images/google.png'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -338,14 +345,52 @@ function App() {
       </section>
       <div className="frequently-asked">
         <h1 className="text-7xl font-bold leading-tight items-center justify-between">
-          Choose the Plan <br />That’s Right for You
+          Frequently Asked <br />Questions
         </h1>
         <p className=" text-gray-300 mt-6 text-xl">
-          Giving you access to essential features and over 1,000 creative tools. Upgrade to the<br /> Pro Plan to unlock powerful AI capabilities, cloud syncing, and a whole new level of<br /> creative freedom.
+          Got questions? We've got answers. Find everything you need to know about using our<br /> platform, plans, and features.
         </p>
       </div>
 
+      <section className="faq-section px-4">
+        <div className="mx-auto faq-container">
+          <div className="faq-list">
+            <details open className="faq-item">
+              <summary className="faq-question">What is this platform used for?<span className="faq-arrow">▾</span></summary>
+              <div className="faq-answer">
+                <p>It's an AI-powered design assistant that helps you generate, customize, and export creative assets in seconds—whether for personal projects, brand work, or commercial use.</p>
+              </div>
+            </details>
 
+            <details className="faq-item">
+              <summary className="faq-question">What happens if I hit my free generation limit?<span className="faq-arrow">▾</span></summary>
+            </details>
+
+            <details className="faq-item">
+              <summary className="faq-question">Do I need design experience to use it?<span className="faq-arrow">▾</span></summary>
+            </details>
+
+            <details className="faq-item">
+              <summary className="faq-question">Can I collaborate with my team?<span className="faq-arrow">▾</span></summary>
+            </details>
+
+            <details className="faq-item">
+              <summary className="faq-question">Is it really free to use?<span className="faq-arrow">▾</span></summary>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="curved-cta mt-6">
+        <div class="bg"></div>
+        <div class="grid"></div>
+        <div class="container">
+          <h2>Ready to Design Smarter?</h2>
+          <p>Whether you're a freelancer, a team, or a growing agency—our tools adapt to your workflow. Design faster. Deliver better.</p>
+          <a class="cta-btn" href="#">Get Started →</a>
+        </div>
+      </section>
+      
 
     </>
   )
