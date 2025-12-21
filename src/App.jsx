@@ -351,8 +351,16 @@ function App() {
           Got questions? We've got answers. Find everything you need to know about using our<br /> platform, plans, and features.
         </p>
       </div>
-
       <section className="faq-section px-4">
+        <div class="faq-deco lt" aria-hidden="true">
+          <img src={rec1} alt="decoration" />
+        </div>
+        <div class="faq-deco lb" aria-hidden="true">
+          <img src={rec2} alt="decoration" />
+        </div>
+        <div class="faq-deco rm" aria-hidden="true">
+          <img src={rec3} alt="decoration" />
+        </div>
         <div className="mx-auto faq-container">
           <div className="faq-list">
             <details open className="faq-item">
@@ -381,7 +389,7 @@ function App() {
         </div>
       </section>
 
-      <section class="curved-cta mt-6">
+      <section class="curved-cta">
         <div class="bg"></div>
         <div class="grid"></div>
         <div class="container">
@@ -390,7 +398,7 @@ function App() {
           <a class="cta-btn" href="#">Get Started →</a>
         </div>
       </section>
-      
+
       <footer style={{ color: '#9ca3af', padding: '32px 0' }}>
         <div className="mx-auto hero-container" style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', justifyContent: 'space-between', maxWidth: '1100px', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px' }}>
           <div style={{ flex: '1', maxWidth: '360px' }}>
