@@ -822,5 +822,16 @@ body {
   height: 72px;
   rotate: 0 deg;
   opacity: 1;
+}
 
+.bg-layer--88 {
+  width: 100%;
+  max-width: 1483px;
+  height: 925px;
+  opacity: 1;
+  margin: 48px auto 0;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }

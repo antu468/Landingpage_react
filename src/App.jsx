@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import bg1 from './assets/images/image 85.png'
 import bg2 from './assets/images/image 87.png'
+import bg3 from './assets/images/image 88.png'
 import logo from './assets/images/Logo (1).png'
 import avatar1 from './assets/images/Container (4).png'
 import avatar2 from './assets/images/Container (3).png'
@@ -270,6 +271,7 @@ function App() {
           Giving you access to essential features and over 1,000 creative tools. Upgrade to the<br /> Pro Plan to unlock powerful AI capabilities, cloud syncing, and a whole new level of<br /> creative freedom.
         </p>
       </div>
+      <div className="bg-layer--88" style={{ backgroundImage: `url(${bg3})` }} />
     </>
   )
 }
