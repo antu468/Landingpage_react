@@ -972,3 +972,16 @@ ul li {
   margin: 80px auto;
   padding: 0 20px;
 }
+
+.frequently-asked {
+  font-family: 'Sk-Modernist', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 56px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+}

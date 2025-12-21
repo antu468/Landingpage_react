@@ -284,15 +284,15 @@ function App() {
             <p class="desc">Everything you need to supercharge your productivity.</p>
 
             <div class="price">$0 <span>/ month</span></div>
-              <h4>What's included</h4>
-              <ul>
-                <li>20 design generations/month</li>
-                <li>Low-res downloads</li>
-                <li>Basic style presets</li>
-                <li>Limited customization options</li>
-              </ul>
+            <h4>What's included</h4>
+            <ul>
+              <li>20 design generations/month</li>
+              <li>Low-res downloads</li>
+              <li>Basic style presets</li>
+              <li>Limited customization options</li>
+            </ul>
 
-              <button class="btn">Subscribe →</button>
+            <button class="btn">Subscribe →</button>
           </div>
 
           <div class="pricing-card pro-card">
@@ -303,18 +303,18 @@ function App() {
               $17 <span>/ month</span>
               <span class="badge">-20%</span>
             </div>
-              <h4>What's included</h4>
-              <ul>
-                <li>Everything in Free</li>
-                <li>Enigma AI</li>
-                <li>Unlimited design generations</li>
-                <li>Custom Themes</li>
-                <li>High-resolution exports</li>
-                <li>Custom Extensions</li>
-                <li>Developer Tools</li>
-              </ul>
+            <h4>What's included</h4>
+            <ul>
+              <li>Everything in Free</li>
+              <li>Enigma AI</li>
+              <li>Unlimited design generations</li>
+              <li>Custom Themes</li>
+              <li>High-resolution exports</li>
+              <li>Custom Extensions</li>
+              <li>Developer Tools</li>
+            </ul>
 
-              <button class="btn">Subscribe →</button>
+            <button class="btn">Subscribe →</button>
           </div>
 
           <div class="pricing-card side-card">
@@ -325,17 +325,26 @@ function App() {
               $37 <span>/ month</span>
               <span class="badge">-20%</span>
             </div>
-              <h4>What's included</h4>
-              <ul>
-                <li>Everything in Free</li>
-                <li>Unlimited Shared Commands</li>
-                <li>Unlimited Shared Quicklinks</li>
-                <li>Priority support</li>
-              </ul>
-              <button class="btn">Subscribe →</button>
+            <h4>What's included</h4>
+            <ul>
+              <li>Everything in Free</li>
+              <li>Unlimited Shared Commands</li>
+              <li>Unlimited Shared Quicklinks</li>
+              <li>Priority support</li>
+            </ul>
+            <button class="btn">Subscribe →</button>
           </div>
         </div>
       </section>
+      <div className="frequently-asked">
+        <h1 className="text-7xl font-bold leading-tight items-center justify-between">
+          Choose the Plan <br />That’s Right for You
+        </h1>
+        <p className=" text-gray-300 mt-6 text-xl">
+          Giving you access to essential features and over 1,000 creative tools. Upgrade to the<br /> Pro Plan to unlock powerful AI capabilities, cloud syncing, and a whole new level of<br /> creative freedom.
+        </p>
+      </div>
+
 
 
     </>
