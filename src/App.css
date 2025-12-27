@@ -327,8 +327,60 @@ body {
 .site-logo:hover,
 .site-logo:focus {
   transform: scale(1.06) translateY(-2px);
-  filter: drop-shadow(0 8px 24px rgba(255, 106, 0, 0.12));
+  filter: drop-shadow(0 8px 24px rgba(255, 106, 0, 0.274));
   opacity: 0.98;
+}
+
+/* Global button hover styles */
+button,
+.btn,
+.btn-primary,
+.card-action,
+.toggle-btn,
+.cta-btn,
+.site-login {
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, opacity 160ms ease;
+}
+
+button:hover,
+.btn:hover,
+.btn-primary:hover,
+.card-action:hover,
+.toggle-btn:hover,
+.cta-btn:hover,
+.site-login:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 30px rgba(238, 142, 46, 0.844);
+}
+
+/* Floating dropdown */
+.floating-dropdown {
+  position: fixed;
+  min-width: 160px;
+  background: linear-gradient(180deg, #0b0b0b, #121212);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 1000;
+  transform-origin: top left;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms cubic-bezier(.2,.9,.2,1);
+}
+.floating-dropdown.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.floating-dropdown .item {
+  padding: 10px 14px;
+  font-size: 14px;
+  color: #e6e6e6;
+  cursor: pointer;
+}
+.floating-dropdown .item:hover {
+  background: rgba(255,255,255,0.04);
 }
 
 .hero-section {

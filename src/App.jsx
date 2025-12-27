@@ -78,6 +78,59 @@ function App() {
     if (link) handleHover(link)
   }
 
+  const dropdownRef = useRef(null)
+
+  useEffect(() => {
+    const dropdown = dropdownRef.current
+    if (!dropdown) return
+
+    const showFor = (target) => {
+      const rect = target.getBoundingClientRect()
+      const left = rect.left + window.scrollX
+      const top = rect.bottom + window.scrollY + 8
+      dropdown.style.left = `${left}px`
+      dropdown.style.top = `${top}px`
+      dropdown.classList.add('show')
+      dropdown.style.transform = 'translateY(0)'
+      dropdown.innerHTML = `
+        <div class="item">Action</div>
+        <div class="item">Details</div>
+        <div class="item">Close</div>
+      `
+    }
+
+    const hide = () => {
+      dropdown.classList.remove('show')
+      dropdown.style.transform = 'translateY(-6px)'
+    }
+
+    const onDocClick = (e) => {
+      const btn = e.target.closest('button, .toggle-btn, .cta-btn, .site-login, .card-action, .btn')
+      if (btn) {
+        e.preventDefault()
+        showFor(btn)
+        return
+      }
+      // click outside -> hide
+      if (!e.target.closest('.floating-dropdown')) hide()
+    }
+
+    const onItemClick = (e) => {
+      const it = e.target.closest('.item')
+      if (!it) return
+      // simple demo behavior: hide on click
+      hide()
+    }
+
+    document.addEventListener('click', onDocClick)
+    dropdown.addEventListener('click', onItemClick)
+
+    return () => {
+      document.removeEventListener('click', onDocClick)
+      dropdown.removeEventListener('click', onItemClick)
+    }
+  }, [])
+
   return (
     <>
       <div className="bg-layer bg-87" style={{ backgroundImage: `url(${bg1})` }} />
@@ -104,6 +157,8 @@ function App() {
         </ul>
         <div ref={indicatorRef} className="nav-indicator" aria-hidden="true" />
       </nav>
+
+      <div ref={dropdownRef} className="floating-dropdown" aria-hidden="true"></div>
 
       <div className="client-frame">
         <div className="client-avatars">
