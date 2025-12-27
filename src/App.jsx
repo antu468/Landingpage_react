@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import bg1 from './assets/images/image 85.png'
 import bg2 from './assets/images/image 87.png'
@@ -37,6 +37,37 @@ import logo4 from './assets/images/google.png'
 
 function App() {
   const [count, setCount] = useState(0)
+  const navRef = useRef(null)
+  const indicatorRef = useRef(null)
+
+  const handleHover = (el) => {
+    if (!el || !navRef.current || !indicatorRef.current) return
+    const rect = el.getBoundingClientRect()
+    const parentRect = navRef.current.getBoundingClientRect()
+    const left = rect.left - parentRect.left
+    indicatorRef.current.style.width = `${rect.width}px`
+    indicatorRef.current.style.transform = `translateX(${left}px)`
+    indicatorRef.current.style.opacity = '1'
+  }
+
+  const handleLeave = () => {
+    if (!indicatorRef.current) return
+    indicatorRef.current.style.opacity = '0'
+  }
+
+  useEffect(() => {
+    // Position the indicator under the first nav item on mount
+    const first = navRef.current?.querySelector('a')
+    if (first) handleHover(first)
+
+    const onResize = () => {
+      const active = navRef.current?.querySelector('a:hover') || navRef.current?.querySelector('a')
+      if (active) handleHover(active)
+    }
+
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   return (
     <>
@@ -55,13 +86,14 @@ function App() {
 
       <button className="site-login">Login</button>
 
-      <nav className="nav-ul">
+      <nav className="nav-ul" ref={navRef} onMouseLeave={handleLeave}>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="#" onMouseEnter={(e) => handleHover(e.currentTarget)}>Home</a></li>
+          <li><a href="#" onMouseEnter={(e) => handleHover(e.currentTarget)}>Services</a></li>
+          <li><a href="#" onMouseEnter={(e) => handleHover(e.currentTarget)}>Contact Us</a></li>
+          <li><a href="#" onMouseEnter={(e) => handleHover(e.currentTarget)}>About Us</a></li>
         </ul>
+        <div ref={indicatorRef} className="nav-indicator" aria-hidden="true" />
       </nav>
 
       <div className="client-frame">
