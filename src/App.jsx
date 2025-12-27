@@ -37,6 +37,8 @@ import logo4 from './assets/images/google.png'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [period, setPeriod] = useState('weekly')
+  const [selectedPlan, setSelectedPlan] = useState(null)
   const navRef = useRef(null)
   const indicatorRef = useRef(null)
 
@@ -56,7 +58,6 @@ function App() {
   }
 
   useEffect(() => {
-    // Position the indicator under the first nav item on mount
     const first = navRef.current?.querySelector('a')
     if (first) handleHover(first)
 
@@ -69,16 +70,113 @@ function App() {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
+  // Animate all paragraphs on scroll into view
+  useEffect(() => {
+    const paras = Array.from(document.querySelectorAll('p'))
+    if (!paras.length) return
+
+    paras.forEach((p, i) => {
+      p.classList.add('animate-paragraph')
+      p.style.transitionDelay = `${i * 70}ms`
+    })
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view')
+          obs.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.12 })
+
+    paras.forEach(p => obs.observe(p))
+    return () => obs.disconnect()
+  }, [])
+
+  // Count-up animation for stats (.value) and numbers (.num)
+  useEffect(() => {
+    const nodes = Array.from(document.querySelectorAll('.value, .num'))
+    if (!nodes.length) return
+
+    const parseTarget = (text) => {
+      const t = String(text).trim()
+      const plus = t.includes('+')
+      const m = t.match(/([\d,.]+)\s*([KMkM]?)/)
+      if (!m) return { value: 0, suffix: '', plus }
+      const num = parseFloat(m[1].replace(/,/g, '')) || 0
+      const suffix = (m[2] || '').toUpperCase()
+      let value = num
+      if (suffix === 'K') value = Math.round(num * 1000)
+      if (suffix === 'M') value = Math.round(num * 1000000)
+      return { value, suffix, plus }
+    }
+
+    const format = (val, suffix, plus) => {
+      if (suffix === 'K') return `${Math.round(val / 1000)}K${plus ? '+' : ''}`
+      if (suffix === 'M') return `${Math.round(val / 1000000)}M${plus ? '+' : ''}`
+      // default: use commas for readability and preserve plus if original had it
+      const s = Intl.NumberFormat().format(Math.round(val))
+      return `${s}${plus ? '+' : ''}`
+    }
+
+    const animate = (el, target, suffix, plus, duration = 1400) => {
+      if (!el) return
+      if (el.dataset.animated === 'true') return
+      const start = performance.now()
+      const from = 0
+      const to = target
+      const step = (now) => {
+        const t = Math.min((now - start) / duration, 1)
+        const eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t // easeInOut
+        const current = Math.floor(from + (to - from) * eased)
+        el.textContent = format(current, suffix, plus)
+        if (t < 1) requestAnimationFrame(step)
+        else {
+          el.textContent = format(to, suffix, plus)
+          el.dataset.animated = 'true'
+        }
+      }
+      requestAnimationFrame(step)
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return
+        const el = entry.target
+        if (el.dataset.animated === 'true') { obs.unobserve(el); return }
+        const { value, suffix, plus } = parseTarget(el.textContent || el.innerText || '')
+        animate(el, value, suffix, plus)
+        obs.unobserve(el)
+      })
+    }, { threshold: 0.2 })
+
+    nodes.forEach((n) => {
+      // if already visible on load, animate immediately
+      const rect = n.getBoundingClientRect()
+      const { value, suffix, plus } = parseTarget(n.textContent || n.innerText || '')
+      if (rect.top >= 0 && rect.top < window.innerHeight) {
+        animate(n, value, suffix, plus)
+      } else {
+        obs.observe(n)
+      }
+    })
+
+    return () => obs.disconnect()
+  }, [])
+
   const scrollToId = (id) => {
     const el = document.getElementById(id)
     if (!el) return
     el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    // after scrolling, ensure indicator positions under the clicked link
     const link = navRef.current?.querySelector(`a[data-target="${id}"]`)
     if (link) handleHover(link)
   }
 
   const dropdownRef = useRef(null)
+
+  const pageDown = () => {
+    if (typeof window !== 'undefined') window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
+  }
 
   useEffect(() => {
     const dropdown = dropdownRef.current
@@ -92,11 +190,6 @@ function App() {
       dropdown.style.top = `${top}px`
       dropdown.classList.add('show')
       dropdown.style.transform = 'translateY(0)'
-      dropdown.innerHTML = `
-        <div class="item">Action</div>
-        <div class="item">Details</div>
-        <div class="item">Close</div>
-      `
     }
 
     const hide = () => {
@@ -111,14 +204,12 @@ function App() {
         showFor(btn)
         return
       }
-      // click outside -> hide
       if (!e.target.closest('.floating-dropdown')) hide()
     }
 
     const onItemClick = (e) => {
       const it = e.target.closest('.item')
       if (!it) return
-      // simple demo behavior: hide on click
       hide()
     }
 
@@ -136,6 +227,8 @@ function App() {
       <div className="bg-layer bg-87" style={{ backgroundImage: `url(${bg1})` }} />
       <div className="bg-layer bg-85" style={{ backgroundImage: `url(${bg2})` }} />
 
+      <div className="page-wrap">
+
       <img src={star1} alt="star1" className="star-img star-1" />
       <img src={star2} alt="star2" className="star-img star-2" />
       <img src={star3} alt="star3" className="star-img star-3" />
@@ -143,10 +236,10 @@ function App() {
       <img src={star5} alt="star5" className="star-img star-5" />
 
       <header className="site-header">
-        <img src={logo} alt="logo" className="site-logo" />
+        <img src={logo} alt="logo" className="site-logo" onClick={pageDown} style={{ cursor: 'pointer' }} />
       </header>
 
-      <button className="site-login">Login</button>
+      <button className="site-login" onClick={pageDown}>Login</button>
 
       <nav className="nav-ul" ref={navRef} onMouseLeave={handleLeave}>
         <ul>
@@ -223,7 +316,9 @@ function App() {
           Explore new dimensions of design
         </p>
 
-        <img src={vector} alt="vector" className="vector-img" />
+        <div className="vector-orbit">
+          <img src={vector} alt="vector" className="vector-img" />
+        </div>
       </div>
 
       <section id="services" className="feature-section">
@@ -375,68 +470,88 @@ function App() {
         </p>
       </div>
       <div className="toggle-wrapper">
-        <div class="toggle-btn active">Monthly</div>
-        <div class="toggle-btn">Yearly</div>
+        <button type="button" className={`toggle-btn ${period === 'weekly' ? 'active' : ''}`} onClick={() => setPeriod('weekly')}>Weekly</button>
+        <button type="button" className={`toggle-btn ${period === 'monthly' ? 'active' : ''}`} onClick={() => setPeriod('monthly')}>Monthly</button>
       </div>
       <div className="bg-layer--88" style={{ backgroundImage: `url(${bg3})` }} />
 
-      <section class="pricing-section">
-        <div class="pricing-wrapper">
-          <div class="pricing-card side-card">
-            <h3>Free</h3>
-            <p class="desc">Everything you need to supercharge your productivity.</p>
+      <section className="pricing-section">
+        <div className="pricing-wrapper">
+          {(() => {
+            const base = { free: 0, pro: 17, team: 37 }
+            const plans = [
+              { key: 'free', title: 'Free', desc: 'Everything you need to supercharge your productivity.' },
+              { key: 'pro', title: 'Pro', desc: 'Unlock a new level of your personal productivity.', badge: '-20%' },
+              { key: 'team', title: 'Team', desc: 'Everything you need to supercharge your productivity.', badge: '-20%' }
+            ]
 
-            <div class="price">$0 <span>/ month</span></div>
-            <h4>What's included</h4>
-            <ul>
-              <li>20 design generations/month</li>
-              <li>Low-res downloads</li>
-              <li>Basic style presets</li>
-              <li>Limited customization options</li>
-            </ul>
+            const fmt = (n) => {
+              if (Number.isInteger(n)) return `$${n}`
+              return `$${n.toFixed(2)}`
+            }
 
-            <button class="btn">Subscribe →</button>
-          </div>
+            return plans.map((p) => {
+              const monthly = base[p.key]
+              const price = period === 'monthly' ? monthly : Math.round((monthly / 4) * 100) / 100
+              const unit = period === 'monthly' ? 'month' : 'week'
+              const priceText = fmt(price)
+              const cardClass = p.key === 'pro' ? 'pricing-card pro-card' : 'pricing-card side-card'
+              return (
+                <div
+                  className={`${cardClass} ${selectedPlan === p.key ? 'featured' : ''}`}
+                  key={p.key}
+                  onClick={(e) => {
+                    setSelectedPlan(p.key)
+                    e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { setSelectedPlan(p.key); e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' }) } }}
+                >
+                  <h3 className={p.key === 'pro' ? 'pro-title' : ''}>{p.title}</h3>
+                  <p className="desc">{p.desc}</p>
 
-          <div class="pricing-card pro-card">
-            <h3 class="pro-title">Pro</h3>
-            <p class="desc">Unlock a new level of your personal productivity.</p>
+                  <div className="price">
+                    {priceText} <span>/ {unit}</span>
+                    {p.badge && <span className="badge">{p.badge}</span>}
+                  </div>
 
-            <div class="price">
-              $17 <span>/ month</span>
-              <span class="badge">-20%</span>
-            </div>
-            <h4>What's included</h4>
-            <ul>
-              <li>Everything in Free</li>
-              <li>Enigma AI</li>
-              <li>Unlimited design generations</li>
-              <li>Custom Themes</li>
-              <li>High-resolution exports</li>
-              <li>Custom Extensions</li>
-              <li>Developer Tools</li>
-            </ul>
+                  <h4>What's included</h4>
+                  <ul>
+                    {p.key === 'free' && (
+                      <>
+                        <li>20 design generations/{unit}</li>
+                        <li>Low-res downloads</li>
+                        <li>Basic style presets</li>
+                        <li>Limited customization options</li>
+                      </>
+                    )}
+                    {p.key === 'pro' && (
+                      <>
+                        <li>Everything in Free</li>
+                        <li>Enigma AI</li>
+                        <li>Unlimited design generations</li>
+                        <li>Custom Themes</li>
+                        <li>High-resolution exports</li>
+                        <li>Custom Extensions</li>
+                        <li>Developer Tools</li>
+                      </>
+                    )}
+                    {p.key === 'team' && (
+                      <>
+                        <li>Everything in Free</li>
+                        <li>Unlimited Shared Commands</li>
+                        <li>Unlimited Shared Quicklinks</li>
+                        <li>Priority support</li>
+                      </>
+                    )}
+                  </ul>
 
-            <button class="btn">Subscribe →</button>
-          </div>
-
-          <div class="pricing-card side-card">
-            <h3>Team</h3>
-            <p class="desc">Everything you need to supercharge your productivity.</p>
-
-            <div class="price">
-              $37 <span>/ month</span>
-              <span class="badge">-20%</span>
-            </div>
-            <h4>What's included</h4>
-            <ul>
-              <li>Everything in Free</li>
-              <li>Unlimited Shared Commands</li>
-              <li>Unlimited Shared Quicklinks</li>
-              <li>Priority support</li>
-            </ul>
-            <button class="btn">Subscribe →</button>
-          </div>
+                  <button className="btn">Subscribe →</button>
+                </div>
+              )
+            })
+          })()}
         </div>
       </section>
       <div className="frequently-asked">
@@ -494,6 +609,8 @@ function App() {
           <a class="cta-btn" href="#">Get Started →</a>
         </div>
       </section>
+
+      </div>
 
       <footer className="site-footer-box" style={{ color: '#9ca3af', padding: '0' }}>
         <div className="mx-auto hero-container" style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', justifyContent: 'space-between', maxWidth: '1100px', margin: '0 auto', paddingLeft: '20px', paddingRight: '20px' }}>
