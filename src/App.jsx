@@ -69,6 +69,15 @@ function App() {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
+  const scrollToId = (id) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    // after scrolling, ensure indicator positions under the clicked link
+    const link = navRef.current?.querySelector(`a[data-target="${id}"]`)
+    if (link) handleHover(link)
+  }
+
   return (
     <>
       <div className="bg-layer bg-87" style={{ backgroundImage: `url(${bg1})` }} />
@@ -88,10 +97,10 @@ function App() {
 
       <nav className="nav-ul" ref={navRef} onMouseLeave={handleLeave}>
         <ul>
-          <li><a href="#" onMouseEnter={(e) => handleHover(e.currentTarget)}>Home</a></li>
-          <li><a href="#" onMouseEnter={(e) => handleHover(e.currentTarget)}>Services</a></li>
-          <li><a href="#" onMouseEnter={(e) => handleHover(e.currentTarget)}>Contact Us</a></li>
-          <li><a href="#" onMouseEnter={(e) => handleHover(e.currentTarget)}>About Us</a></li>
+          <li><a href="#home" data-target="home" onClick={(e) => { e.preventDefault(); scrollToId('home') }} onMouseEnter={(e) => handleHover(e.currentTarget)}>Home</a></li>
+          <li><a href="#services" data-target="services" onClick={(e) => { e.preventDefault(); scrollToId('services') }} onMouseEnter={(e) => handleHover(e.currentTarget)}>Services</a></li>
+          <li><a href="#contact" data-target="contact" onClick={(e) => { e.preventDefault(); scrollToId('contact') }} onMouseEnter={(e) => handleHover(e.currentTarget)}>Contact Us</a></li>
+          <li><a href="#about" data-target="about" onClick={(e) => { e.preventDefault(); scrollToId('about') }} onMouseEnter={(e) => handleHover(e.currentTarget)}>About Us</a></li>
         </ul>
         <div ref={indicatorRef} className="nav-indicator" aria-hidden="true" />
       </nav>
@@ -112,7 +121,7 @@ function App() {
         </div>
       </div>
 
-      <div className="hero-section">
+      <div id="home" className="hero-section">
         <h1 className="text-7xl font-bold leading-tight items-center justify-between">
           Automate <span className="text-orange-500">Intelligence</span>.
           Accelerate Growth.
@@ -149,7 +158,7 @@ function App() {
         </div>
       </div>
 
-      <div className="content-section px-20">
+      <div id="about" className="content-section px-20">
         <h2 className="text-7xl font-bold leading-tight">
           Designed for Designers<br />Powered by <span className="text-orange-500">AI</span>.
         </h2>
@@ -162,7 +171,7 @@ function App() {
         <img src={vector} alt="vector" className="vector-img" />
       </div>
 
-      <section className="feature-section">
+      <section id="services" className="feature-section">
         <div className="feature-grid">
           <article className="feature-card feature-card--accent feature-card--small">
             <div className="card-body">
@@ -383,7 +392,7 @@ function App() {
           Got questions? We've got answers. Find everything you need to know about using our<br /> platform, plans, and features.
         </p>
       </div>
-      <section className="faq-section px-4">
+      <section id="contact" className="faq-section px-4">
         <div class="faq-deco lt" aria-hidden="true">
           <img src={rec1} alt="decoration" />
         </div>
